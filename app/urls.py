@@ -1,5 +1,8 @@
 from django.contrib import admin
 from django.urls import include, path
+from core.serializers.modelo import ModeloSerialier
+from core.views.acessorio import AcessorioSerializer
+from core.views.cor import CorSerializer
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
@@ -12,6 +15,9 @@ from core.views import UserViewSet
 router = DefaultRouter()
 
 router.register(r'usuarios', UserViewSet, basename='usuarios')
+router.register(r"acessorio", AcessorioSerializer)
+router.register(r"modelo", ModeloSerialier)
+router.register(r"cor", CorSerializer)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
